@@ -1,0 +1,165 @@
+{
+    "main": {
+        "protectedRoute": {
+            "message": "You don't have the right to access this content",
+            "title": "Unauthorized access"
+        },
+        "errorPage": {
+            "message": "This page doesn't exist",
+            "title": "Page not found"
+        }
+    },
+    "header": {
+        "lang": "Language",
+        "languages": {
+            "en": "English",
+            "fr": "Français"
+        },
+        "products": {
+            "analytics": {
+                "name": "Analytics",
+                "description": "Gain better insights into your traffic"
+            },
+            "engagement": {
+                "name": "Engagement",
+                "description": "Speak directly to your customers"
+            },
+            "security": {
+                "name": "Security",
+                "description": "Your customers' data will be safe and secure"
+            },
+            "integrations": {
+                "name": "Integrations",
+                "description": "Connect with third-party tools"
+            },
+            "automations": {
+                "name": "Automations",
+                "description": "Build strategic funnels that will convert"
+            }
+        },
+        "callsToAction": {
+            "watchDemo": {
+                "name": "Watch the Demo"
+            },
+            "contactSales": {
+                "name": "Contact Sales"
+            }
+        },
+        "productsName": "Products",
+        "features": "Features",
+        "account": "Account",
+        "company": "Company",
+        "userNavigation": {
+            "profile": "Profile",
+            "settings": "Settings",
+            "messages": "Messages",
+            "signOut": "Sign Out",
+            "signIn": "Sign In",
+            "signUp": "Sign Up"
+        }
+    },
+    "footer": {
+        "newsletterInfo": "Sign up for our newsletter to get updates.",
+        "newsletterInput": "Email address",
+        "newsletterSubmit": "Sign up",
+        "links": {
+            "quickLinksTitle": "Quick Links",
+            "quickLinks": {
+                "home": "Home",
+                "whoWeAre": "Who We Are",
+                "ourPhilosophy": "Our Philosophy"
+            },
+            "industriesTitle": "Industries",
+            "industries": {
+                "retail": "Retail & E-Commerce",
+                "informationTechnology": "Information Technology",
+                "financeInsurance": "Finance & Insurance"
+            }
+        }
+    },
+    "hero": {
+        "products" : {
+            "analytics": {
+                "name": "Analytics",
+                "description": "Gain a better understanding of your traffic"
+            },
+            "engagement": {
+                "name": "Engagement",
+                "description": "Speak directly to your customers"
+            },
+            "security": {
+                "name": "Security",
+                "description": "Your customers' data will be safe and secure"
+            },
+            "integrations": {
+                "name": "Integrations",
+                "description": "Connect with third-party tools"
+            },
+            "automations": {
+                "name": "Automations",
+                "description": "Build strategic funnels that will convert"
+            }
+        },
+        "title": "Optimize your business with cutting-edge solutions from HarmonyStack-React.",
+        "description": "With HarmonyStack-React, you will save time and resources",
+        "watchDemo": "Watch the Demo",
+        "contactSales": "Contact Sales"
+    },
+    "forms": {
+        "logIn": {
+            "title": "Log In",
+            "email": "Email",
+            "password": "Password",
+            "invalidEmail": "Invalid email address",
+            "invalidPassword": "Invalid password",
+            "noPasswordProvided": "No password provided",
+            "required": "Required"
+        },
+        "profile": {
+            "usernameRequired": "Username is required",
+            "lastNameRequired": "Last name is required",
+            "emailRequired": "Email is required",
+            "passwordRequired": "Password is required",
+            "passwordMinCharacters": "Password must be at least 8 characters long",
+            "newPasswordRequired": "New password is required",
+            "newPasswordMinCharacters": "New password must be at least 8 characters long",
+            "newPasswordConfirmationRequired": "New password confirmation is required",
+            "profileUpdated": "Profile updated",
+            "unknown": "unknown",
+            "errorUnknown": "Error unknown",
+            "username": "Username",
+            "lastName": "Last name",
+            "email": "Email",
+            "password": "Password",
+            "newPassword": "New password",
+            "newPasswordConfirmation": "New password confirmation",
+            "update": "Update",
+            "cancel": "Cancel"
+        },
+        "signUp": {
+            "steps": {
+                "accountSetup": "Account setup",
+                "personalDetails": "Personal details",
+                "invalidEmailAddress": "Invalid email address",
+                "required": "Requis",
+                "passwordTooShort": "Password must contain at least 8 characters",
+                "passwordStrength": "Password is not secure",
+                "passwordIsTooWeak": "Password is too weak",
+                "passwordsMustMatch": "Passwords must match",
+                "usernameTooShort": "Username must contain at least 2 characters",
+                "lastNameTooShort": "Last name must contain at least 2 characters",
+                "email": "Email",
+                "password": "Password",
+                "confirmPassword": "Confirm password"
+            }
+        }
+    },
+    "errorPage": {
+        "goBackHome": "Go back home"
+    },
+    "profile": {
+        "errorUnknown": "An unknown error occurred",
+        "errorLabel": "Error",
+        "seeMySubscription": "See my subscription"
+    }
+}

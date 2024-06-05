@@ -1,0 +1,165 @@
+{
+    "main": {
+        "protectedRoute": {
+            "message": "Vous n'avez pas les droits pour accéder à ce contenu",
+            "title": "Accès non autorisé"
+        },
+        "errorPage": {
+            "message": "Cette page n'existe pas",
+            "title": "Page introuvable"
+        }
+    },
+    "header" : {
+        "lang": "Langue",
+        "languages": {
+            "en": "English",
+            "fr": "Français"
+        },
+        "products" : {
+            "analytics": {
+                "name": "Analytique",
+                "description": "Obtenez une meilleure compréhension de votre trafic"
+            },
+            "engagement": {
+                "name": "Engagement",
+                "description": "Parlez directement à vos clients"
+            },
+            "security": {
+                "name": "Sécurité",
+                "description": "Les données de vos clients seront sûres et sécurisées"
+            },
+            "integrations": {
+                "name": "Intégrations",
+                "description": "Connectez-vous avec des outils tiers"
+            },
+            "automations": {
+                "name": "Automatisations",
+                "description": "Construisez des entonnoirs stratégiques qui convertiront"
+            }
+        },
+        "callsToAction": {
+            "watchDemo": {
+                "name": "Regarder la démo"
+            },
+            "contactSales": {
+                "name": "Contacter les ventes"
+            }
+        },
+        "productsName": "Produits",
+        "features": "Caractéristiques",
+        "account": "Compte",
+        "company": "Entreprise",
+        "userNavigation": {
+            "profile": "Profil",
+            "settings": "Paramètres",
+            "messages": "Messages",
+            "signOut": "Déconnexion",
+            "signIn": "Connexion",
+            "signUp": "Inscription"
+        }
+    },
+    "footer": {
+        "newsletterInfo": "Inscrivez-vous à notre newsletter pour obtenir des mises à jour.",
+        "newsletterInput": "Adresse e-mail",
+        "newsletterSubmit": "S'inscrire",
+        "links": {
+            "quickLinksTitle":"Liens rapides",
+            "quickLinks" :{
+                "home": "Accueil",
+                "whoWeAre": "Qui sommes-nous",
+                "ourPhilosophy": "Notre philosophie"
+            },
+            "industriesTitle": "Industries",
+            "industries": {
+                "retail": "Vente au détail & E-Commerce",
+                "informationTechnology": "Informatique",
+                "financeInsurance": "Finance & Assurance"
+            }
+        }
+    },
+    "hero": {
+        "products" : {
+            "analytics": {
+                "name": "Analytique",
+                "description": "Obtenez une meilleure compréhension de votre trafic"
+            },
+            "engagement": {
+                "name": "Engagement",
+                "description": "Parlez directement à vos clients"
+            },
+            "security": {
+                "name": "Sécurité",
+                "description": "Les données de vos clients seront sûres et sécurisées"
+            },
+            "integrations": {
+                "name": "Intégrations",
+                "description": "Connectez-vous avec des outils tiers"
+            },
+            "automations": {
+                "name": "Automatisations",
+                "description": "Construisez des entonnoirs stratégiques qui convertiront"
+            }
+        },
+        "title": "Optimisez votre activité avec des solutions innovantes de HarmonyStack-React.",
+        "description": "Grâce à HarmonyStack-React, vous allez gagner du temps et des ressources",
+        "watchDemo": "Regarder la démo",
+        "contactSales": "Contacter le service"
+    },
+    "forms": {
+        "logIn": {
+            "title": "Connexion",
+            "email": "Adresse e-mail",
+            "password": "Mot de passe",
+            "invalidEmail": "Adresse e-mail invalide",
+            "invalidPassword": "Mot de passe invalide",
+            "noPasswordProvided": "Aucun mot de passe fourni",
+            "required": "Requis"
+        },
+        "profile": {
+            "usernameRequired": "Le nom d'utilisateur est requis",
+            "lastNameRequired": "Le nom de famille est requis",
+            "emailRequired": "L'adresse e-mail est requise",
+            "passwordRequired": "Le mot de passe est requis",
+            "passwordMinCharacters": "Le mot de passe doit contenir au moins 8 caractères",
+            "newPasswordRequired": "Le nouveau mot de passe est requis",
+            "newPasswordMinCharacters": "Le nouveau mot de passe doit contenir au moins 8 caractères",
+            "newPasswordConfirmationRequired": "La confirmation du nouveau mot de passe est requise",
+            "profileUpdated": "Profil mis à jour",
+            "unknown": "inconnu",
+            "errorUnknown": "Erreur inconnue",
+            "username": "Nom d'utilisateur",
+            "lastName": "Nom de famille",
+            "email": "Email",
+            "password": "Mot de passe",
+            "newPassword": "Nouveau mot de passe",
+            "newPasswordConfirmation": "Confirmation du nouveau mot de passe",
+            "update": "Mettre à jour",
+            "cancel": "Annuler"
+        },
+        "signUp": {
+            "steps": {
+                "accountSetup": "Configuration du compte",
+                "personalDetails": "Détails personnels",
+                "invalidEmailAddress": "Adresse e-mail invalide",
+                "required": "Requis",
+                "passwordTooShort": "Le mot de passe doit contenir au moins 8 caractères",
+                "passwordStrength": "Mot de passe pas sécurisé",
+                "passwordIsTooWeak": "Le mot de passe est trop faible",
+                "passwordsMustMatch": "Les mots de passe doivent correspondre",
+                "usernameTooShort": "Le nom d'utilisateur doit contenir au moins 2 caractères",
+                "lastNameTooShort": "Le nom de famille doit contenir au moins 2 caractères",
+                "email": "Email",
+                "password": "Mot de passe",
+                "confirmPassword": "Confirmation du mot de passe"
+            }
+        }
+    },
+    "errorPage": {
+        "goBackHome": "Retourner à l'accueil"
+    },
+    "profile": {
+        "errorUnknown": "Une erreur inconnue est survenue",
+        "errorLabel": "Erreur",
+        "seeMySubscription": "Voir mon abonnement"
+    }
+}
