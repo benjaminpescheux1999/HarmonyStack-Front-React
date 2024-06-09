@@ -10,7 +10,7 @@ axios.defaults.withCredentials = true;
 export const instance = axios.create({
   baseURL: 'http://localhost:5000/api/v1', // URL de l'API
   headers: {
-    'Access-Control-Allow-Origin': '*', // Autoriser les requêtes de n'importe quelle origine (CORS) (à des fins de test uniquement)
+    'Access-Control-Allow-Origin': 'http://localhost:5173',
     'Accept-Language': 'fr',
   },
 });
@@ -107,6 +107,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     })
     .then((response) => {
       const responseData = response.data;
+      console.log("responseData", responseData);
       const user = responseData.user;
       notification('success', 'Connexion réussie');
       setUser(user);

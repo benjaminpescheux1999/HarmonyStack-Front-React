@@ -12,6 +12,7 @@ export default {
       },
       spacing: {
         'screen-minus-395': 'calc(100vh - 395px)',
+        'screen-max-395': 'calc(100vh - 395px)',
       },
     }
   },

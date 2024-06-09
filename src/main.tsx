@@ -24,6 +24,7 @@ const Hero = lazy(() => import('./components/Hero'));
 const Loader = lazy(() => import('./components/animations/loader'));
 const ErrorPage = lazy(() => import('./pages/errorPage'));
 const SettingsPage = lazy(() => import('./pages/settings'));
+const MessagePage = lazy(() => import('./pages/message'));
 
 const Profile = lazy(() => import('./pages/profile'));
 
@@ -87,6 +88,11 @@ const router = createBrowserRouter([
       { path: "settings", element: 
         <ProtectedRoute>
           <SettingsPage />
+        </ProtectedRoute>
+      },
+      { path: "messages", element: 
+        <ProtectedRoute>
+          <MessagePage />
         </ProtectedRoute>
       },
     ],
