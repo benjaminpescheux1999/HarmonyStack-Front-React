@@ -212,10 +212,6 @@ export default function Header() {
                             // formAction={login} 
                             />
                         </ModalCustom>
-                        {/* <button onClick={() => {console.log('sign in');
-                        }} className="text-sm font-semibold leading-6 text-gray-900">
-                            Sign in <span aria-hidden="true">&rarr;</span>
-                        </button> */}
                     </div>
                 ) : (
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -239,7 +235,7 @@ export default function Header() {
                             <MenuItems  className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
 
                             {userNavigation.map((item) => {
-                                if ((user && item.key === "signIn") || (!user && item.key === "signOut")) {
+                                if ((user && item.key === "signIn") || (!user && item.key === "signOut") || (user && item.key === "signUp")) {
                                     return null;
                                 }
                                 return (
@@ -378,6 +374,9 @@ export default function Header() {
                             }
                             // Si l'utilisateur n'est pas connecté et l'item est "Sign out", ne rien retourner
                             if (!user && item.key === 'signOut') {
+                                return null;
+                            }
+                            if(item.key === "signUp" && user) {
                                 return null;
                             }
                             // Si l'item est "signIn" et l'utilisateur n'est pas connecté, afficher la modal de connexion

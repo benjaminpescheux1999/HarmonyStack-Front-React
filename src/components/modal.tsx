@@ -29,10 +29,13 @@ export default function ModalCustom({ children, buttonTitle, buttonColor, button
         left: '50%',
         transform: 'translate(-50%, -50%)',
         bgcolor: 'background.paper',
-        border: '2px solid #000',
+        // border: '2px solid #000',
         boxShadow: 24,
         width: !isMdDown ? "50%" : "90%",
         p: 5,
+        borderRadius: '10px',
+        alignItems: 'center',
+        justifyContent: 'center',
     };
 
     // Cloner les enfants en leur passant la fonction handleClose comme prop
@@ -70,7 +73,7 @@ export default function ModalCustom({ children, buttonTitle, buttonColor, button
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                 >
-                    <Box sx={style}>
+                    <Box sx={style} className="shadow-lg">
                         {childrenWithProps}
                     </Box>
                 </Modal>

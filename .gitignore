@@ -28,3 +28,5 @@ node_modules/
 
 # Environment file
 .env
+# Million Lint
+.million

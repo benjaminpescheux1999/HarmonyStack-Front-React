@@ -22,15 +22,13 @@ const FormSignIn  = ({formAction }: FormLoginProps) => {
             password: Yup.string().required(t("forms.logIn.noPasswordProvided"))
         }),
         onSubmit: (values, { resetForm }) => {
-            console.log(values);
             formAction(values);
-            resetForm(); // Réinitialisation du formulaire
+            resetForm();
         },
     });
     
     return (
         <div>
-            <h1>Log In</h1>
             <form onSubmit={formik.handleSubmit}  style={{gap:"1em", display:"grid", width:"90%", margin:"auto"}}>
                 <TextField
                     fullWidth

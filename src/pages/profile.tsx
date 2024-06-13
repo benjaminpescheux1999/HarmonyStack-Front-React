@@ -7,9 +7,9 @@ import { IUser } from '../contexts/type';
 import { useTranslation } from 'react-i18next';
 
 interface IAuthContext {
-    user: IUser | null; // Assuming User is a defined type for user objects
-    setUser: (user: IUser | null) => void;
-  }
+  user: IUser | null;
+  setUser: (user: IUser | null) => void;
+}
 
 const Profile = () => {
   const { t } = useTranslation();
