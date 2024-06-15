@@ -52,7 +52,7 @@ export default function TypingAnimation({
       )}
     >
       {displayedText}
-      <span className="text-blue-500 dark:text-blue-500">{lastWord}</span>
+      <span className="text-blue dark:text-blue">{lastWord}</span>
       <motion.span
         initial={{
           opacity: 0,

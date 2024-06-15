@@ -43,35 +43,34 @@ export default function Hero() {
 
   return (
     <div id="hero-page" className="flex items-center justify-center z-15">
-      <div className="text-center p-4 px-0 bg-black pt-2.5 w-full">
-        <div className="mx-auto rounded-md  h-[30rem] overflow-hidden w-full">   
+      <div className="text-center p-4 px-0 bg-white dark:bg-dark-gray pt-2.5 w-full">
+        <div className="mx-auto rounded-md h-[30rem] overflow-hidden w-full">   
             <Vortex
-                backgroundColor="black"
-                className="flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-full"
+                className="flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-full bg-white dark:bg-dark-gray"
             >
                 {/* <TypingAnimation words="Découvrez un service innovant avec des fonctionnalités exceptionnelles pour optimiser votre activité avec HarmonyStaccvk-React." color="white"/> */}
                 <div className='md:w-5/6 sm:w-full lg:w-3/5'>
                   <TypingAnimation
-                    className="text-4xl font-bold text-white dark:text-black"
+                    className="text-4xl font-bold text-gray-9000 dark:text-gray-300"
                     text={t("hero.title")}
                   />
                   {/* <TypewriterEffectSmooth words={words} /> */}
                 </div>
-                <p className="text-white text-sm md:text-2xl max-w-xl mt-6 text-center">
+                <p className="text-gray-9000 dark:text-gray-300 text-sm md:text-2xl max-w-xl mt-6 text-center ">
                   {t("hero.description")}
                 </p>
                 <p className="whitespace-pre-wrap text-8xl font-medium tracking-tighter text-black dark:text-white">
                   <NumberTicker value={100}/>
                 </p>
                 <div className="flex flex-col sm:flex-row items-center gap-4 mt-6">
-                    <button className="px-4 py-2 bg-transparent hover:bg-transparent transition duration-200 rounded-lg text-white shadow-[0px_2px_0px_0px_#FFFFFF40_inset] border-2 border-white">
+                    <button className="px-4 py-2 bg-transparent hover:bg-transparent transition duration-200 rounded-lg text-black shadow-[0px_2px_0px_0px_#FFFFFF40_inset] border-2 border-black dark:text-white dark:border-white">
                         <div className='flex items-center justify-center'>
                             <PlayCircleIcon className="w-4 h-4 mr-2" />
                             {t("hero.watchDemo")}
                         </div>
                     </button>
                     {/* <ShinyButton text="Shiny Button" /> */}
-                    <button className="px-4 py-2  text-white ">
+                    <button className="px-4 py-2  text-black dark:text-white ">
                     <div className='flex items-center justify-center'>
                         <PhoneIcon className="w-4 h-4 mr-2" />
                         {t("hero.contactSales")}
@@ -81,7 +80,7 @@ export default function Hero() {
             </Vortex>
           </div>
           
-          <div className="max-w-5xl mx-auto px-8 bg-black w-screen">
+          <div className="max-w-5xl mx-auto px-8 w-screen">
               <CompressFeatures items={projects} />
           </div>
         </div>

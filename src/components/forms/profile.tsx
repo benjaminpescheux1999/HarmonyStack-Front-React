@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useAuth, instance } from '../../contexts/authContext';
 import { useSnackbar } from '../../contexts/notificationContext';
-import { TextField, Button, ButtonGroup, Grid } from '@mui/material';
+import { TextField, ButtonGroup, Grid } from '@mui/material';
 import { IUser } from '../../contexts/type';
 import { useTranslation } from 'react-i18next';
 
@@ -121,18 +121,28 @@ const FormUserProfile = ({ user, onSubmitSuccess }: { user: IUser, onSubmitSucce
               error={formik.touched.username && Boolean(formik.errors.username)}
               helperText={formik.touched.username && formik.errors.username}
               InputLabelProps={{
-                style: { color: 'rgb(62, 75, 107)' },
+                className: 'text-black dark:text-white',
+                sx: {
+                  color: 'rgb(62, 75, 107)',
+                  '&.Mui-focused': {
+                    color: 'rgb(62, 75, 107)',
+                  }
+                }
               }}
               InputProps={{
                 sx: {
                     "&.Mui-focused": {
                         '& .MuiOutlinedInput-notchedOutline': {
-                            borderColor:'rgb(62, 75, 107)',
-                            border: 'solid 1px'
+                          borderColor: 'rgb(62, 75, 107)',
+                          border: 'solid 1px',
                         }
-                    },    
-                    color: 'rgb(62, 75, 107)',
-                },
+                    },
+                    '& .MuiOutlinedInput-notchedOutline': {
+                      borderColor: 'rgb(62, 75, 107)',
+                      border: 'solid 1px',
+                    }    
+                  },
+                  className: 'text-black dark:text-white border-black dark:border-white'
               }}
               required
             />
@@ -149,18 +159,28 @@ const FormUserProfile = ({ user, onSubmitSuccess }: { user: IUser, onSubmitSucce
               error={formik.touched.lastname && Boolean(formik.errors.lastname)}
               helperText={formik.touched.lastname && formik.errors.lastname}
               InputLabelProps={{
-                style: { color: 'rgb(62, 75, 107)' },
+                className: 'text-black dark:text-white',
+                sx: {
+                  color: 'rgb(62, 75, 107)',
+                  '&.Mui-focused': {
+                    color: 'rgb(62, 75, 107)',
+                  }
+                }
               }}
               InputProps={{
                 sx: {
                     "&.Mui-focused": {
                         '& .MuiOutlinedInput-notchedOutline': {
-                            borderColor:'rgb(62, 75, 107)',
-                            border: 'solid 1px'
+                          borderColor: 'rgb(62, 75, 107)',
+                          border: 'solid 1px',
                         }
-                    },    
-                    color: 'rgb(62, 75, 107)',
-                },
+                    },
+                    '& .MuiOutlinedInput-notchedOutline': {
+                      borderColor: 'rgb(62, 75, 107)',
+                      border: 'solid 1px',
+                    }    
+                  },
+                  className: 'text-black dark:text-white border-black dark:border-white'
               }}
               required
             />
@@ -178,18 +198,28 @@ const FormUserProfile = ({ user, onSubmitSuccess }: { user: IUser, onSubmitSucce
             error={formik.touched.email && Boolean(formik.errors.email)}
             helperText={formik.touched.email && formik.errors.email}
             InputLabelProps={{
-              style: { color: 'rgb(62, 75, 107)' },
+              className: 'text-black dark:text-white',
+              sx: {
+                color: 'rgb(62, 75, 107)',
+                '&.Mui-focused': {
+                  color: 'rgb(62, 75, 107)',
+                }
+              }
             }}
             InputProps={{
               sx: {
                   "&.Mui-focused": {
                       '& .MuiOutlinedInput-notchedOutline': {
-                          borderColor:'rgb(62, 75, 107)',
-                          border: 'solid 1px'
+                        borderColor: 'rgb(62, 75, 107)',
+                        border: 'solid 1px',
                       }
-                  },    
-                  color: 'rgb(62, 75, 107)',
-              },
+                  },
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    borderColor: 'rgb(62, 75, 107)',
+                    border: 'solid 1px',
+                  }    
+                },
+                className: 'text-black dark:text-white border-black dark:border-white'
             }}
             required
         />
@@ -210,18 +240,28 @@ const FormUserProfile = ({ user, onSubmitSuccess }: { user: IUser, onSubmitSucce
           error={formik.touched.old_password && (Boolean(formik.errors.old_password) && formik.values.old_password.length >= 8)}
           helperText={formik.touched.old_password && formik.errors.old_password}
           InputLabelProps={{
-            style: { color: 'rgb(62, 75, 107)' },
+            className: 'text-black dark:text-white',
+            sx: {
+              color: 'rgb(62, 75, 107)',
+              '&.Mui-focused': {
+                color: 'rgb(62, 75, 107)',
+              }
+            }
           }}
           InputProps={{
             sx: {
                 "&.Mui-focused": {
                     '& .MuiOutlinedInput-notchedOutline': {
-                        borderColor:'rgb(62, 75, 107)',
-                        border: 'solid 1px'
+                      borderColor: 'rgb(62, 75, 107)',
+                      border: 'solid 1px',
                     }
-                },    
-                color: 'rgb(62, 75, 107)',
-            },
+                },
+                '& .MuiOutlinedInput-notchedOutline': {
+                  borderColor: 'rgb(62, 75, 107)',
+                  border: 'solid 1px',
+                }    
+              },
+              className: 'text-black dark:text-white border-black dark:border-white'
           }}
         />
         <TextField
@@ -237,50 +277,62 @@ const FormUserProfile = ({ user, onSubmitSuccess }: { user: IUser, onSubmitSucce
             error={formik.touched.password && Boolean(formik.errors.password) && (formik.values.password.length >= 8 )}
             helperText={formik.touched.password && formik.errors.password}
             InputLabelProps={{
-              style: { color: 'rgb(62, 75, 107)' },
+              className: 'text-black dark:text-white',
+              sx: {
+                color: 'rgb(62, 75, 107)',
+                '&.Mui-focused': {
+                  color: 'rgb(62, 75, 107)',
+                }
+              }
             }}
             InputProps={{
               sx: {
                   "&.Mui-focused": {
                       '& .MuiOutlinedInput-notchedOutline': {
-                          borderColor:'rgb(62, 75, 107)',
-                          border: 'solid 1px'
+                        borderColor: 'rgb(62, 75, 107)',
+                        border: 'solid 1px',
                       }
-                  },    
-                  color: 'rgb(62, 75, 107)',
-              },
+                  },
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    borderColor: 'rgb(62, 75, 107)',
+                    border: 'solid 1px',
+                  }    
+                },
+                className: 'text-black dark:text-white border-black dark:border-white'
             }}
             required={formik.values.old_password !== ''}
         />
         <ButtonGroup fullWidth>
-          <Button 
+          <button 
             type="submit" 
-            variant="contained"
-            sx={{
-              backgroundColor: 'rgb(62, 75, 107)',
-              '&:hover': {
-                backgroundColor: 'rgb(82, 95, 127)',
-              }
-            }}
+            // variant="contained"
+            className="bg-white text-dark-gray border-dark-gray w-full p-2 rounded border border-solid hover:bg-dark-gray hover:text-white dark:bg-dark-gray dark:text-white dark:hover:bg-dark-gray-light dark:hover:text-white dark:hover:border-white"
+            // sx={{
+            //   backgroundColor: 'rgb(62, 75, 107)',
+            //   '&:hover': {
+            //     backgroundColor: 'rgb(82, 95, 127)',
+            //   }
+            // }}
           >
             {t('forms.profile.update')}&nbsp;<span aria-hidden="true">&rarr;</span>
-          </Button>
-          <Button
+          </button>
+          <button
             type="button"
             onClick={() => formik.setValues(initialValues)}
-            variant="outlined"
+            // variant="outlined"
             disabled={!hasChanges}
-            sx={{
-              borderColor: 'rgb(62, 75, 107)',
-              color: 'rgb(62, 75, 107)',
-              '&:hover': {
-                borderColor: 'rgb(82, 95, 127)',
-                color: 'rgb(82, 95, 127)',
-              }
-            }}
+            // sx={{
+            //   borderColor: 'rgb(62, 75, 107)',
+            //   color: 'rgb(62, 75, 107)',
+            //   '&:hover': {
+            //     borderColor: 'rgb(82, 95, 127)',
+            //     color: 'rgb(82, 95, 127)',
+            //   }
+            // }}
+            className='bg-white text-dark-gray border-dark-gray w-full p-2 rounded border border-solid hover:bg-dark-gray hover:text-white dark:bg-dark-gray dark:text-white dark:hover:bg-dark-gray-light dark:hover:text-white dark:hover:border-white'
           >
             {t('forms.profile.cancel')}
-          </Button>
+          </button>
         </ButtonGroup>
       </form>
     </div>

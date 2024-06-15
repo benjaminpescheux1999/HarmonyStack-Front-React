@@ -12,10 +12,14 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './redux/store';
 import { useAuth, AuthProvider } from './contexts/authContext';
 import { SnackbarProvider } from './contexts/notificationContext';
+import { ThemeProvider } from './contexts/themeContext';
 
 import './i18n';
 import { I18nextProvider, useTranslation } from 'react-i18next';
 import i18next from './i18n';
+
+// import { config } from 'dotenv';
+// config();
 
 
 const Header = lazy(() => import('./layout/Header'));
@@ -65,7 +69,7 @@ function Layout() {
   return (
     <>
       <Header/>
-      <main className="min-h-screen-minus-395">
+      <main className="min-h-screen-minus-395 bg-white dark:bg-dark-gray">
         <Outlet />
       </main>
       <Footer/>
@@ -104,19 +108,30 @@ const router = createBrowserRouter([
 const rootElement = document.getElementById("root");
 if (!rootElement) throw new Error("Root container missing in index.html");
 
+const localStorageTheme = localStorage.getItem('theme') || import.meta.env.VITE_THEME;
+
+if (localStorageTheme === 'dark') {
+  document.documentElement.classList.add('dark');
+} else {
+  document.documentElement.classList.remove('dark');
+}
+rootElement.classList.add('bg-white', 'dark:bg-dark-gray');
+
 const root = ReactDOM.createRoot(rootElement);
 root.render(
-  <React.Suspense fallback={<Loader />} >
+  <React.Suspense fallback={<Loader />}>
     <Provider store={store}>
     <I18nextProvider i18n={i18next}>
       <PersistGate loading={<Loader />} persistor={persistor}>
-        <SnackbarProvider>
-          <AuthProvider>
-            <RouterProvider router={router} />
-          </AuthProvider>
-        </SnackbarProvider>
+        <ThemeProvider>
+          <SnackbarProvider>
+            <AuthProvider>
+              <RouterProvider router={router} />
+            </AuthProvider>
+          </SnackbarProvider>
+        </ThemeProvider>
       </PersistGate>
     </I18nextProvider>
     </Provider>
   </React.Suspense>
-);
+  );

@@ -55,9 +55,9 @@ const Profile = () => {
     <Container className="my-10">
       <Grid container spacing={2} sx={{ height: 'auto' }}>
         <Grid item xs={12} md={4}>
-          <Paper elevation={2} sx={{ height: '100%', paddingY: 2 }}>
+          <Paper elevation={2} sx={{ height: '100%', paddingY: 2 }} className='bg-white dark:bg-dark-gray-light'>
             <Box sx={{alignContent: 'center', height:'100%'}}>
-              <Card elevation={0}>
+              <Card elevation={0} className="bg-white dark:bg-dark-gray-light">
                 <CardMedia
                   component="img"
                   style={{ width: '100%', height: 'auto' }} // Adjust width to 100% of the grid and height automatically
@@ -84,7 +84,7 @@ const Profile = () => {
           </Paper>
         </Grid>
         <Grid item xs={12} md={8}>
-          <Paper elevation={2} sx={{ height: '100%', paddingY: 2 }}>
+          <Paper elevation={2} sx={{ height: '100%', paddingY: 2 }} className='bg-white dark:bg-dark-gray-light'>
             <Box sx={{alignContent: 'center', height:'100%'}}>
               {user && <FormUserProfile user={user} onSubmitSuccess={handleUpdateSuccess} />}
             </Box>

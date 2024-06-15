@@ -25,7 +25,10 @@ import {
   FingerPrintIcon,
   SquaresPlusIcon,
   XMarkIcon,
+  SunIcon,
+  MoonIcon,
 } from '@heroicons/react/24/outline'
+
 
 // import { Divider } from '@mui/material';
 
@@ -38,10 +41,12 @@ import FormSignIn from '../components/forms/signIn';
 import FormSignUp from '../components/forms/signUp';
 
 import { useAuth } from '../contexts/authContext';
+import { useTheme } from '../contexts/themeContext';
 import { useTranslation } from "react-i18next";
 
 export default function Header() {
     const { t } = useTranslation();
+    const { theme, setTheme } = useTheme();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const { 
         user, 
@@ -56,49 +61,57 @@ export default function Header() {
         { name: t('header.products.security.name'), description: t('header.products.security.description'), to: '/', icon: FingerPrintIcon },
         { name: t('header.products.integrations.name'), description: t('header.products.integrations.description'), to: '/', icon: SquaresPlusIcon },
         { name: t('header.products.automations.name'), description: t('header.products.automations.description'), to: '/', icon: ArrowPathIcon },
-      ]
+    ]
       
-      const languages = [
-          { name: t('header.languages.fr'), shortcut: 'fr', action: '/', icon: "flag-fr.png" },
-          { name: t('header.languages.en'), shortcut: 'en', action: '/', icon: "flag-uk.png" },
-      ]
+    const languages = [
+        { name: t('header.languages.fr'), shortcut: 'fr', action: '/', icon: "flag-fr.png" },
+        { name: t('header.languages.en'), shortcut: 'en', action: '/', icon: "flag-uk.png" },
+    ]
       
-      const callsToAction = [
+    const callsToAction = [
         { name: t('header.callsToAction.watchDemo.name'), to: '/', icon: PlayCircleIcon },
         { name: t('header.callsToAction.contactSales.name'), to: '/', icon: PhoneIcon },
-      ]
+    ]
       
-      const userNavigation = [
-          { name: t('header.userNavigation.profile'), href: '/profile', key: 'profile' },
-          { name: t('header.userNavigation.settings'), href: '/settings', key: 'settings' },
-          { name: t('header.userNavigation.messages'), href: '/messages', key: 'messages' },
-          { name: t('header.userNavigation.signOut'), href: '/', key: 'signOut' },
-          { name: t('header.userNavigation.signIn'), href: '/', key: 'signIn' },
-          { name: t('header.userNavigation.signUp'), href: '/', key: 'signUp' },
-      ]
+    const userNavigation = [
+        { name: t('header.userNavigation.profile'), href: '/profile', key: 'profile' },
+        { name: t('header.userNavigation.settings'), href: '/settings', key: 'settings' },
+        { name: t('header.userNavigation.messages'), href: '/messages', key: 'messages' },
+        { name: t('header.userNavigation.signOut'), href: '/', key: 'signOut' },
+        { name: t('header.userNavigation.signIn'), href: '/', key: 'signIn' },
+        { name: t('header.userNavigation.signUp'), href: '/', key: 'signUp' },
+    ]
+
+    const handleThemeChange = () => {
+        if(theme === 'dark') {
+            setTheme('light');
+        } else {
+            setTheme('dark');
+        }
+    }
 
     return (
-        <header className="bg-white w-full top-0 mb-100 h-[90px] sticky z-50 shadow-lg">
+        <header className="bg-white dark:bg-dark-gray-light w-full top-0 mb-100 h-[90px] sticky z-50 shadow-lg">
             <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div className="flex lg:flex-1">
-                <Link to="/" className="-m-1.5 p-1.5">
-                    <span className="sr-only">Your Company</span>
-                    <img className="h-10 w-auto" src="./logo.png" alt="logo-header" />
-                </Link>
+                    <Link to="/" className="-m-1.5 p-1.5">
+                        <span className="sr-only">Your Company</span>
+                        <img className="h-10 w-auto" src="./logo.png" alt="logo-header" />
+                    </Link>
                 </div>
                 <div className="flex lg:hidden">
-                <button
-                    type="button"
-                    className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-                    onClick={() => setMobileMenuOpen(true)}
-                >
-                    <span className="sr-only">Open main menu</span>
-                    <Bars3Icon className="h-8 w-8" aria-hidden="true" />
-                </button>
+                    <button
+                        type="button"
+                        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 dark:text-gray-300"
+                        onClick={() => setMobileMenuOpen(true)}
+                    >
+                        <span className="sr-only">Open main menu</span>
+                        <Bars3Icon className="h-8 w-8" aria-hidden="true" />
+                    </button>
                 </div>
                 <PopoverGroup className="hidden lg:flex lg:gap-x-12">
                     <Popover className="relative">
-                        <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+                        <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-dark-grey dark:text-gray-300">
                         {t('header.productsName')}
                         <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
                         </PopoverButton>
@@ -111,22 +124,22 @@ export default function Header() {
                         leaveFrom="opacity-100 translate-y-0"
                         leaveTo="opacity-0 translate-y-1"
                         >
-                        <PopoverPanel className="absolute -left-8 top-full z-50 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
+                        <PopoverPanel className="absolute -left-8 top-full z-50 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 dark:bg-dark-gray dark:text-gray-300">
                             <div className="p-4">
                             {products.map((item) => (
                                 <div
-                                key={item.name}
-                                className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
+                                    key={item.name}
+                                    className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 text-gray-300 dark:text-gray-300"
                                 >
-                                <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                    {item.icon && <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />}
+                                <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white dark:bg-gray-300">
+                                    {item.icon && <item.icon className="h-6 w-6 text-dark-gray-light group-hover:text-indigo-600" aria-hidden="true" />}
                                 </div>
                                 <div className="flex-auto">
-                                    <Link to={item.to || '/'} className="block font-semibold text-gray-900">
+                                    <Link to={item.to || '/'} className=" block font-semibold text-dark-gray-light dark:text-gray-300 dark:hover:text-dark-gray-light">
                                     {item.name}
                                     <span className="absolute inset-0" />
                                     </Link>
-                                    <p className="mt-1 text-gray-600">{item.description}</p>
+                                    <p className="mt-1 text-dark-gray-light dark:text-gray-300 dark:hover:text-dark-gray-light group-hover:text-dark-gray-light">{item.description}</p>
                                 </div>
                                 </div>
                             ))}
@@ -136,9 +149,9 @@ export default function Header() {
                                 <Link
                                     key={item.name}
                                     to={item.to}
-                                    className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
+                                    className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-dark-grey hover:bg-gray-100 dark:text-dark-gray-light dark:hover:bg-gray-100 "
                                 >
-                                <item.icon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
+                                <item.icon className="h-5 w-5 flex-none text-gray-400 dark:text-gray-300 dark:hover:text-gray-300" aria-hidden="true" />
                                     {item.name}
                                 </Link>
                             ))}
@@ -147,24 +160,23 @@ export default function Header() {
                         </Transition>
                     </Popover>
                     
-                    <Link to="/" className="text-sm font-semibold leading-6 text-gray-900">
+                    <Link to="/" className="text-sm dark:text-gray-300 font-semibold leading-6 text-dark-grey">
                         {t('header.features')}
                     </Link>
-                    <Link to="/" className="text-sm font-semibold leading-6 text-gray-900">
+                    <Link to="/" className="text-sm dark:text-gray-300 font-semibold leading-6 text-dark-grey">
                         {t('header.account')}
                     </Link>
-                    <Link to="/" className="text-sm font-semibold leading-6 text-gray-900">
+                    <Link to="/" className="text-sm dark:text-gray-300 font-semibold leading-6 text-dark-grey">
                         {t('header.company')}
                     </Link>
                     <Popover className="relative">
                     {({ open, close }) => (
                         <>
-                            <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+                            <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-dark-grey dark:text-gray-300">
                             {t('header.lang')}
                             <GlobeAltIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
                             <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
                             </PopoverButton>
-
                             {open && (
                                 <Transition
                                     enter="transition ease-out duration-200"
@@ -174,7 +186,7 @@ export default function Header() {
                                     leaveFrom="opacity-100 translate-y-0"
                                     leaveTo="opacity-0 translate-y-1"
                                 >
-                                        <PopoverPanel className="absolute -left-8 top-full z-50 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
+                                        <PopoverPanel className="absolute -left-8 top-full z-50 mt-3 w-auto max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 dark:bg-dark-gray dark:text-gray-300">
                                             <div className="p-4">
                                             {languages.map((item) => (
                                                 <div
@@ -182,11 +194,11 @@ export default function Header() {
                                                 className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
                                                 onClick={() => { handleChangeLanguage(item.shortcut); close(); }}
                                                 >
-                                                <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                                    {item.icon && <img src={item.icon} alt={item.name} className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />}
+                                                <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white dark:bg-gray-300">
+                                                    {item.icon && <img src={item.icon} alt={item.name} className="h-6 w-6 text-dark-gray-light group-hover:text-indigo-600" aria-hidden="true" />}
                                                 </div>
                                                 <div className="flex-auto">
-                                                    <button className="block font-semibold text-gray-900">
+                                                    <button className="block font-semibold text-dark-grey dark:text-gray-300 dark:hover:text-dark-gray-light">
                                                     {item.name}
                                                     <span className="absolute inset-0" />
                                                     </button>
@@ -200,14 +212,17 @@ export default function Header() {
                         </>
                     )}
                     </Popover>
+                    <span onClick={() => handleThemeChange()} className='h-7 w-7 cursor-pointer'>
+                        {theme === 'dark' ? <SunIcon className='h-7 w-7 text-gray-300' /> : <MoonIcon className='h-7 w-7 text-dark-gray-light' />}
+                    </span>
                 </PopoverGroup>
 
                 { !user ? (
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end flex gap-x-2">
-                        <ModalCustom buttonTitle={t('header.userNavigation.signIn')} component={"Link"} className="text-sm font-semibold leading-6 text-gray-900">
+                        <ModalCustom buttonTitle={t('header.userNavigation.signIn')} component={"Link"} className="text-sm font-semibold leading-6 text-dark-grey dark:text-gray-300">
                             <FormSignIn formAction={login} />
                         </ModalCustom>
-                        <ModalCustom buttonTitle={t('header.userNavigation.signUp')} component={"Link"} className="text-sm font-semibold leading-6 text-gray-900">
+                        <ModalCustom buttonTitle={t('header.userNavigation.signUp')} component={"Link"} className="text-sm font-semibold leading-6 text-dark-grey dark:text-gray-300">
                             <FormSignUp 
                             // formAction={login} 
                             />
@@ -218,10 +233,10 @@ export default function Header() {
                     {/* Profile dropdown */}
                     <Menu as="div" className="relative ml-3">
                         <div>
-                            <MenuButton className="relative flex max-w-xs items-center rounded-full  text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 ">
-                            <span className="absolute -inset-1.5" />
-                            <span className="sr-only">Open user menu</span>
-                            <img className="h-10 w-10 rounded-full" src={user && (user.imageUrl? user.imageUrl : '/defaultprofileMen.png')} alt="" />
+                            <MenuButton className="relative flex max-w-xs items-center rounded-full  text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2">
+                                <span className="absolute -inset-1.5" />
+                                <span className="sr-only">Open user menu</span>
+                                <img className="h-10 w-10 rounded-full" src={user && (user.imageUrl? user.imageUrl : '/defaultprofileMen.png')} alt="" />
                             </MenuButton>
                         </div>
                         <Transition
@@ -232,7 +247,7 @@ export default function Header() {
                             leaveFrom="transform opacity-100 scale-100"
                             leaveTo="transform opacity-0 scale-95"
                         >
-                            <MenuItems  className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
+                            <MenuItems  className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50 dark:bg-dark-gray dark:text-gray-300">
 
                             {userNavigation.map((item) => {
                                 if ((user && item.key === "signIn") || (!user && item.key === "signOut") || (user && item.key === "signUp")) {
@@ -245,8 +260,8 @@ export default function Header() {
                                                 to={item.href}
                                                 onClick={(item.key === "signOut" && user) ? logout : () => {}}
                                                 className={cn(
-                                                    focus ? 'bg-gray-100' : '',
-                                                    'block px-4 py-2 text-sm text-gray-700'
+                                                    focus ? 'bg-gray-100 dark:bg-dark-gray-light' : '',
+                                                    'block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 dark:hover:text-gray-100'
                                                 )}
                                             >
                                                 {item.name}
@@ -265,7 +280,7 @@ export default function Header() {
             </nav>
             <Dialog className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
                 <div className="fixed inset-0 z-10" />
-                <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:bg-dark-gray dark:text-gray-300">
                 <div className="flex items-center justify-between" onClick={() => setMobileMenuOpen(false)}>
                     <Link to="/" className="-m-1.5 p-1.5">
                     <span className="sr-only">Your Company</span>
@@ -290,9 +305,9 @@ export default function Header() {
                         <Disclosure as="div" className="-mx-3">
                             {({ open }) => (
                                 <>
-                                    <DisclosureButton className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                                    <DisclosureButton className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-dark-grey hover:bg-gray-50 dark:text-gray-300 dark:hover:text-dark-gray-light">
                                         Language
-                                        {/* <img src="./logo.png" alt={""} className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" /> */}
+                                        {/* <img src="./logo.png" alt={""} className="h-6 w-6 text-dark-gray-light group-hover:text-indigo-600" aria-hidden="true" /> */}
                                         <ChevronDownIcon
                                             className={cn(open ? 'rotate-180' : '', 'h-5 w-5 flex-none')}
                                             aria-hidden="true"
@@ -300,15 +315,15 @@ export default function Header() {
                                     </DisclosureButton>
                                     <DisclosurePanel className="mt-2 space-y-2">
                                         {[...languages].map((item) => (
-                                        <div key={item.name} className="group relative flex items-center gap-x-6 rounded-lg text-sm leading-6 hover:bg-gray-50">
-                                            <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                                {item.icon && <img src={item.icon} alt={item.name} className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />}
+                                        <div key={item.name} className="group relative flex items-center gap-x-6 rounded-lg text-sm leading-6 hover:bg-gray-50" onClick={() => handleChangeLanguage(item.shortcut)}>
+                                            <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white dark:bg-dark-gray">
+                                                {item.icon && <img src={item.icon} alt={item.name} className="h-6 w-6 text-dark-gray-light group-hover:text-indigo-600 dark:text-dark-gray-light dark:group-hover:text-gray-100" aria-hidden="true" />}
                                             </div>
                                             <Link
                                                 key={item.name}
                                                 to={item.action || '/'}
                                                 onClick={() => handleChangeLanguage(item.shortcut)}
-                                                className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                                className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-dark-grey hover:bg-gray-50 dark:text-gray-300 dark:hover:text-dark-gray-light"
                                             >
                                                 {item.name}
                                             </Link>
@@ -319,10 +334,11 @@ export default function Header() {
                                 </>
                             )}
                             </Disclosure>
+                            {/* Theme */}
                             <Disclosure as="div" className="-mx-3">
                             {({ open }) => (
                                 <>
-                                    <DisclosureButton className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                                    <DisclosureButton className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-dark-grey hover:bg-gray-50 dark:text-gray-300 dark:hover:text-dark-gray-light">
                                         {t('header.productsName')}
                                         <ChevronDownIcon
                                             className={cn(open ? 'rotate-180' : '', 'h-5 w-5 flex-none')}
@@ -335,7 +351,7 @@ export default function Header() {
                                             key={item.name}
                                             to={item.to || '/'}
                                             onClick={() => setMobileMenuOpen(false)}
-                                            className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                            className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-dark-grey hover:bg-gray-50 dark:text-gray-300 dark:hover:text-dark-gray-light"
                                         >
                                             {item.name}
                                         </Link>
@@ -348,21 +364,21 @@ export default function Header() {
                             <Link
                                 to="/"
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-dark-grey hover:bg-gray-50 dark:text-gray-300 dark:hover:text-dark-gray-light"
                             >
                                 {t('header.features')}
                             </Link>
                             <Link
                                 to="/"
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-dark-grey hover:bg-gray-50 dark:text-gray-300 dark:hover:text-dark-gray-light"
                             >
                                 {t('header.account')}
                             </Link>
                             <Link
                                 to="/"
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-dark-grey hover:bg-gray-50 dark:text-gray-300 dark:hover:text-dark-gray-light"
                             >
                                 {t('header.company')}
                             </Link>
@@ -382,14 +398,14 @@ export default function Header() {
                             // Si l'item est "signIn" et l'utilisateur n'est pas connecté, afficher la modal de connexion
                             if (item.key === "signIn" && !user) {
                                 return (
-                                    <ModalCustom key={index} buttonTitle={t('header.userNavigation.signIn')}  component={"Link"} className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                                    <ModalCustom key={index} buttonTitle={t('header.userNavigation.signIn')}  component={"Link"} className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-dark-grey hover:bg-gray-50">
                                         <FormSignIn formAction={login} />
                                     </ModalCustom>
                                 );
                             }
                             if(item.key === "signUp" && !user) {
                                 return (
-                                    <ModalCustom key={index} buttonTitle={t('header.userNavigation.signUp')}  component={"Link"} className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                                    <ModalCustom key={index} buttonTitle={t('header.userNavigation.signUp')}  component={"Link"} className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-dark-grey hover:bg-gray-50">
                                         <FormSignUp 
                                         // formAction={login} 
                                         />
@@ -402,12 +418,17 @@ export default function Header() {
                                     key={index}
                                     onClick={() => { item.key === "signOut" ? logout() : setMobileMenuOpen(false); }}
                                     to={item.href}
-                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-gray-50 text-dark-grey dark:text-white"
                                 >
                                     {item.name}
                                 </Link>
                             );
                         })}
+                        <div>
+                            <span onClick={() => handleThemeChange()} className='h-7 w-7 cursor-pointer'>
+                                {theme === 'dark' ? <SunIcon className='h-7 w-7 text-gray-300' /> : <MoonIcon className='h-7 w-7 text-dark-gray-light' />}
+                            </span>
+                        </div>
                     </div>
                 </div>
                 </DialogPanel>

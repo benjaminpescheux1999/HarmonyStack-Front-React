@@ -37,7 +37,7 @@ export const CompressFeatures = ({items, className}:CompressFeaturesProps) => {
                 <AnimatePresence>
                     {hoveredIndex === idx && (
                     <motion.span
-                        className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-white/[0.8] block rounded-3xl"
+                        className="absolute inset-0 h-full w-full bg-neutral-200 bg-black/[0.6] dark:bg-white/[0.8] block rounded-3xl"
                         layoutId="hoverBackground"
                         initial={{ opacity: 0 }}
                         animate={{
@@ -51,9 +51,9 @@ export const CompressFeatures = ({items, className}:CompressFeaturesProps) => {
                     />
                     )}
                 </AnimatePresence>
-                <Card>
-                    <CardTitle>{item.title}</CardTitle>
-                    <CardDescription>{item.description}</CardDescription>
+                <Card className="bg-dark-gray dark:bg-white">
+                    <CardTitle className="text-white dark:text-gray-900">{item.title}</CardTitle>
+                    <CardDescription className="text-white dark:text-gray-900">{item.description}</CardDescription>
                 </Card>
                 </Link>
             </Grid>
